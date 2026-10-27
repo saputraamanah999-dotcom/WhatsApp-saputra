@@ -1,5 +1,0 @@
-importScripts('https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js','https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-compat.js');
-firebase.initializeApp({apiKey:"AIzaSyDrAYKLg_Go-UiqB3tmQbHEudQXYzKm3s0",authDomain:"projekwhattsaf.firebaseapp.com",projectId:"projekwhattsaf",storageBucket:"projekwhattsaf.firebasestorage.app",messagingSenderId:"431649153198",appId:"1:431649153198:web:bd08dc5ef06f6c44300d3f"});
-const m=firebase.messaging();
-m.onBackgroundMessage(p=>{const d=p.data||{};self.registration.showNotification(d.title||'Mini WhatsApp',{body:d.body||'',icon:'icon-192.png',badge:'icon-192.png',tag:d.tag||'mini',renotify:true,requireInteraction:d.type==='call',vibrate:d.type==='call'?[400,200,400,200,400]:[200,100,200],data:{url:'./'}})});
-self.addEventListener('notificationclick',e=>{e.notification.close();e.waitUntil(clients.matchAll({type:'window',includeUncontrolled:true}).then(l=>{for(const c of l)if('focus' in c)return c.focus();return clients.openWindow('./')}))});
